@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the JavaScript Quiz</h1>
+        </header>
+
+        <section class= quiz>
+            <div class = "question-1">
+                <h2>Question 1</h2>
+                <p>What is JavaScript useful for?</p>
+                <ul>
+                    <li><button class="a">Make the webpage more interactive</button></li>
+                    <li><button class="b">Change the design and text</button></li>
+                    <li><button class="c">Make changes to the console in chrome dev tools</button></li>
+                    <li><button class="d">All of the above</button></li> 
+                </ul>
+            </div>
+
+            <div class="question-2">
+                <h2>Question 2</h2>
+                <p>True or False: JavaScript and Java are similar programming langauges.</p>
+                <ul>
+                    <li><button class="true">True</button></li>
+                    <li><button class="false">False</button></li>
+                </ul>
+            </div>
+
+        </section>  
+        <section class="score">
+            <h2>Time: <span id="timer">0:00</span></h2>
+        </section>     
+        <section class="game-over">
+            <h2>Game-Over!</h2>
+            <form>
+                <label for="initials">Enter your initials here:</label>
+                <input type="text" id="initials" name="initials" maxlength="3" required>
+                <button type="enter">Enter</button>
+            </form>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
