@@ -13,8 +13,8 @@
             <h1>Welcome to the JavaScript Quiz</h1>
         </header>
 
-        <section class= quiz>
-            <div class = "question-1">
+        <section class="quiz">
+            <div id="question-1" class="question">
                 <h2>Question 1</h2>
                 <p>What is JavaScript useful for?</p>
                 <ul>
@@ -25,7 +25,7 @@
                 </ul>
             </div>
 
-            <div class="question-2">
+            <div class="question-2" class="question">
                 <h2>Question 2</h2>
                 <p>True or False: JavaScript and Java are similar programming langauges.</p>
                 <ul>
@@ -36,9 +36,9 @@
 
         </section>  
         <section class="score">
-            <h2>Time: <span id="timer">0:00</span></h2>
+            <h2>Time: <span id="timer">120 seconds remaining</span></h2>
         </section>     
-        <section class="game-over">
+        <section class="game-over hidden" >
             <h2>Game-Over!</h2>
             <form>
                 <label for="initials">Enter your initials here:</label>
