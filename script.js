@@ -1,8 +1,9 @@
 //global variables : time,
 let startTime = 120;
+let timeLeft = startTime;
 let clockEl = document.querySelector("#timer");
 console.log(clockEl);
-let gameOverMessage = document.querySelector(".game-over");
+let gameOverMessage = document.querySelector(".gameover");
 let quizSection = document.querySelector(".quiz");
 
 // try making arrays and then if then:add eventListner
@@ -30,22 +31,17 @@ let questionList = [
   },
 ];
 
-// minute counter and seconds counter as separate variables. write if between 60-120 seconds, write if 59-0 calling out each variable
-
-//start timer
 function countdown(startTime) {
-  let timeLeft = startTime;
+  timeLeft = startTime;
 
   let timeInterval = setInterval(function () {
-    if (timeLeft > 1) {
+    if (timeLeft >= 1) {
       clockEl.textContent = timeLeft + " seconds remaining";
       timeLeft--;
-    } else if (timeLeft === 1) {
-      clockEl.textContent = timeLeft + " second remaining";
-      timeLeft--;
     } else {
-      clockEl.textContent = "";
+      clockEl.textContent = timeLeft + " seconds remaining";
       clearInterval(timeInterval);
+      document.querySelector(".gameover").style.display = "block";
     }
   }, 1000);
 }
@@ -58,7 +54,6 @@ function finale(startTime) {
     document.querySelector(".hidden").style.display = "block";
   }
 }
-
 function renderQuestion(questionIndex) {
   console.log("questionIndex: ", questionIndex);
 
@@ -88,9 +83,28 @@ function renderQuestion(questionIndex) {
       renderQuestion(questionIndex + 1);
     };
   }
+
+  answerEventListeners();
 }
 
 renderQuestion(0);
+
+// wrong answer subtract time
+function answerEventListeners() {
+  const buttons = document.querySelectorAll("button");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", wrongAnswerClick);
+  }
+}
+
+function wrongAnswerClick(event) {
+  const selectedAnswer = event.target.innerText;
+  const questionIndex = 0;
+
+  if (selectedAnswer !== questionList[questionIndex].correctAnswer) {
+    timeLeft -= 10;
+  }
+}
 
 // ---------------------------------------------
 
@@ -98,11 +112,10 @@ renderQuestion(0);
 // console.log("result: ", x + 1);
 // console.log("x: ", x);
 
-//if question wrong subtract time
 //if timer reaches 0, game over populate with initials
 
 //if question correct don't subtract time
 
 //if last question display game over, game over populate with initials
 
-//correctly store data after quiz is over. store initials store when timer ends at end of quiz.
+//correctly store data after quiz is over. store initials store when timer ends at end of quiz

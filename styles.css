@@ -25,3 +25,7 @@ header {
 ul {
   list-style: none;
 }
+
+.gameover {
+  display: none;
+}
