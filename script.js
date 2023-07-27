@@ -1,5 +1,5 @@
 //global variables : time,
-let startTime = 120;
+let startTime = 60;
 let timeLeft = startTime;
 let clockEl = document.querySelector("#timer");
 console.log(clockEl);
@@ -28,6 +28,23 @@ let questionList = [
     question: "True or False: JavaScript uses dynamic typing",
     answers: ["True", "False"],
     correctAnswer: "True",
+  },
+  {
+    question:
+      "What is needed in JavaScript in order to create an event in most scenarios?",
+    answers: [
+      "GroupEvents",
+      "Event Listeners",
+      "button tags",
+      "none of the above",
+    ],
+    correctAnswer: "Event Listeners",
+  },
+  {
+    question:
+      "What is a library used to assist with more tedious types of JavaScript code?",
+    answers: ["JQuery", "Bootstrap", "Bulma", "chatGPT"],
+    correctAnswer: "JQuery",
   },
 ];
 
