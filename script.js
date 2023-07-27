@@ -1,4 +1,3 @@
-//global variables : time,
 let startTime = 60;
 let timeLeft = startTime;
 let clockEl = document.querySelector("#timer");
@@ -6,7 +5,6 @@ console.log(clockEl);
 let gameOverMessage = document.querySelector(".gameover");
 let quizSection = document.querySelector(".quiz");
 
-// try making arrays and then if then:add eventListner
 let questionList = [
   {
     question: "What is JavaScript useful for?",
@@ -65,14 +63,16 @@ function countdown(startTime) {
 
 countdown(startTime);
 
-function finale(startTime) {
-  let timeLeft = startTime;
-  if (timeLeft <= 0) {
-    document.querySelector(".hidden").style.display = "block";
-  }
-}
 function renderQuestion(questionIndex) {
   console.log("questionIndex: ", questionIndex);
+  if (questionIndex >= questionList.length) {
+    quizSection.innerHTML = "";
+    clockEl.style.display = "none";
+    gameOverMessage.style.display = "block";
+    document.querySelector(".score").textContent =
+      "Your score is " + timeLeft + " seconds remaining.";
+    return;
+  }
 
   quizSection.innerHTML = `
       <div class="question">
@@ -96,7 +96,6 @@ function renderQuestion(questionIndex) {
     buttons[i].onclick = (e) => {
       const button = e.target;
       console.log(button.innerText);
-      // Render the next question...
       renderQuestion(questionIndex + 1);
     };
   }
@@ -106,7 +105,6 @@ function renderQuestion(questionIndex) {
 
 renderQuestion(0);
 
-// wrong answer subtract time
 function answerEventListeners() {
   const buttons = document.querySelectorAll("button");
   for (let i = 0; i < buttons.length; i++) {
@@ -124,10 +122,6 @@ function wrongAnswerClick(event) {
 }
 
 // ---------------------------------------------
-
-// let x = 1;
-// console.log("result: ", x + 1);
-// console.log("x: ", x);
 
 //if timer reaches 0, game over populate with initials
 
